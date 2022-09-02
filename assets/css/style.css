@@ -1,0 +1,90 @@
+/* Common Css Start */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    background: #F6F6F6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    display: inline-block;
+    text-decoration: none;
+}
+
+:root {
+    /*color*/
+    --focus-color: #5D5FEF;
+    --regular-font-color: #949494;
+    --mid-font-color: #515151;
+}
+
+/* ||Common Css End|| */
+
+/* Nav Css Start */
+#nav .container {
+    border-color: var(--mid-font-color);
+}
+
+.logo {
+    font-family: 'Fredoka One', cursive;
+    color: var(--focus-color);
+}
+
+.logo.focus {
+    background-color: var(--focus-color);
+    padding: 0 10px;
+}
+
+#nav ul li a {
+    color: var(--mid-font-color);
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+#nav ul li a i {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background-color: var(--focus-color);
+}
+
+/* ||Nav Css End|| */
+
+/* News Nav Css Start */
+#news-nav a {
+    color: var(--mid-font-color);
+    font-size: 18px;
+}
+
+/* ||News Nav Css End|| */
+
+/* News Count Css Start */
+#news-count h2 {
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+/* ||News Count Css End|| */
