@@ -1,9 +1,12 @@
 /* Common Css Start */
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;700&display=swap');
 
+body {
+    background: #F6F6F6;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
-    background: #F6F6F6;
 }
 
 h1,
@@ -41,6 +44,13 @@ ul li {
     --mid-font-color: #515151;
 }
 
+.user_icone {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background-color: var(--focus-color);
+}
+
 /* ||Common Css End|| */
 
 /* Nav Css Start */
@@ -64,13 +74,6 @@ ul li {
     padding-left: 15px;
 }
 
-#nav ul li a i {
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    background-color: var(--focus-color);
-}
-
 /* ||Nav Css End|| */
 
 /* News Nav Css Start */
@@ -83,8 +86,21 @@ ul li {
 
 /* News Count Css Start */
 #news-count h2 {
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px 20px;
 }
 
 /* ||News Count Css End|| */
+
+/* News List Css Start */
+.card_footer a {
+    color: var(--mid-font-color);
+    font-size: 18px;
+}
+
+.card_footer a .fa-clipboard {
+    font-size: 20px;
+    color: var(--focus-color);
+}
+
+/* ||News List Css End|| */

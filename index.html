@@ -35,7 +35,8 @@
                         <ul>
                             <li><a href="#" class="text-uppercase fw-bold">News</a></li>
                             <li><a href="#" class="text-uppercase fw-bold">Blog</a></li>
-                            <li><a href="#"><i class="fa-solid fa-user text-white rounded-circle text-center"></i></a>
+                            <li><a href="#" class="d-none d-lg-block"><i
+                                        class="fa-solid fa-user text-white rounded-circle text-center user_icone"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -48,7 +49,7 @@
         <section id="news-nav">
             <div class="container py-4">
                 <div class="row">
-                    <ul class="d-flex justify-content-between">
+                    <ul class="d-flex flex-column flex-md-row justify-content-between">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Home</a></li>
@@ -77,9 +78,45 @@
 
     <main>
         <!-- News List Section Start -->
+        <section>
+            <div class="container">
 
+                <div class="card mb-3 border-0">
+                    <div class="d-flex flex-column flex-md-row align-items-center p-2 rounded">
+                        <div class="card_image pe-2">
+                            <img src="assets/images/card-image.jpg" class="img-fluid rounded" alt="...">
+                        </div>
+                        <div class="card_contante">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold">Card title</h5>
+                                <p class="card-text pt-2 pb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Architecto
+                                    ullam quo ratione, temporibus tempora consequatur excepturi aut pariatur cumque,
+                                    totam eligendi accusantium soluta nulla dolore dolorum corrupti maxime qui odit?</p>
+                                <div
+                                    class="card_footer card-text d-flex justify-content-between align-items-center border-top pt-2">
+                                    <div class="writer d-flex align-items-center">
+                                        <i
+                                            class="fa-solid fa-user text-white rounded-circle text-center user_icone me-2">
+                                        </i>
+                                        <a class="fw-bold">Jane Cooper</a>
+                                    </div>
+                                    <a href="#" class="fw-bold"><i class="fa-regular fa-eye"></i> 1.5M</a>
+                                    <a href="#"><i class="fa-solid fa-clipboard"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
         <!-- ||News List Section End|| -->
     </main>
+
+    <footer>
+        <p class="py-3 mt-4 border-top text-center ">Copyright @ 2022 News Wall</p>
+    </footer>
 
     <!-- ===================================== -->
     <!-- Bootstrap JS CDN Link -->
