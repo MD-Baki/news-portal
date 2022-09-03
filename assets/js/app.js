@@ -11,15 +11,16 @@ const showCategories = cat => {
         const categoryDiv = document.createElement('li');
         categoryDiv.classList.add('mb-3');
         categoryDiv.innerHTML = `
-                <a href="#" class="pe-4 px-lg-0">${category.category_name}</a>
+                <a class="pe-4 px-lg-0" onClick="callCategory('${category.category_id}')">${category.category_name}</a>
         `;
         categoriesContainer.appendChild(categoryDiv);
     });
 }
-loadCategories()
 
-const newsCategory = () => {
-    const url = `https://openapi.programming-hero.com/api/news/category/01`
+loadCategories();
+
+const newsCategory = (searchNews) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${searchNews}`
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
@@ -27,9 +28,10 @@ const newsCategory = () => {
 
 const displayNews = newsCat => {
     const newsContainer = document.getElementById('news-container');
+    newsContainer.innerHTML = ``;
 
     newsCat.forEach(news => {
-        console.log(news);
+        // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card')
         newsDiv.innerHTML = `
@@ -59,4 +61,8 @@ const displayNews = newsCat => {
         newsContainer.appendChild(newsDiv);
     })
 }
-newsCategory();
+const callCategory = (code) => {
+    // console.log(code);
+    newsCategory(code);
+}
+
