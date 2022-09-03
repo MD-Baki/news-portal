@@ -93,9 +93,13 @@ ul li {
 /* ||News Count Css End|| */
 
 /* News List Css Start */
+#news-container .card {
+    margin-bottom: 16px;
+    border: 0;
+}
+
 .card_footer a {
     color: var(--mid-font-color);
-    font-size: 18px;
 }
 
 .card_footer a .fa-clipboard {
