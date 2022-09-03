@@ -24,6 +24,7 @@ span {
 a,
 a:hover {
     text-decoration: none;
+    cursor: pointer;
 }
 
 ul {
@@ -49,6 +50,17 @@ ul li {
     height: 35px;
     line-height: 35px;
     background-color: var(--focus-color);
+}
+
+.active {
+    background-color: var(--focus-color);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+.active:hover {
+    color: #fff;
 }
 
 /* ||Common Css End|| */

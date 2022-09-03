@@ -60,12 +60,29 @@
         <!-- News Count Section Start -->
         <section id="news-count">
             <div class="container pt-2 pb-4">
-                <h2 class="bg-white rounded"> <span class="bg-white rounded">0</span> items found for category
-                    Entertainment
+                <h2 class="bg-white rounded"> <span id="news-counter" class="bg-white rounded">0</span> items found for
+                    category
                 </h2>
             </div>
         </section>
         <!-- ||News Count Section End|| -->
+
+        <!-- Tranding Section Start -->
+        <section class="container pb-4">
+            <div class=" row align-items-center">
+                <div class="col-4">
+                    Sort By View:
+                    <select>
+                        <option selected>Default</option>
+                    </select>
+                </div>
+                <div class="col-8 d-flex justify-content-end align-items-center">
+                    <a class=" fw-bold me-4 ">Today’s Pick</a>
+                    <a class="active fw-bold">Trending</a>
+                </div>
+            </div>
+        </section>
+        <!-- ||Tranding Section End|| -->
     </header>
 
     <main>
@@ -87,22 +104,22 @@
             </div>
         </section>
         <!-- ||News List Section End|| -->
-    </main>
 
-    <!-- Modal -->
-    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="detailModalLabel">Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="modal">
+        <!-- Modal -->
+        <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="detailModalLabel">Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modal">
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <footer>
         <p class="py-3 mt-4 border-top border-bottom text-center ">Copyright @ 2022 News Wall</p>

@@ -19,7 +19,7 @@ const showCategories = cat => {
 }
 
 loadCategories();
-
+// ==================================================================
 const newsCategory = (searchNews) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${searchNews}`
     fetch(url)
@@ -30,6 +30,9 @@ const newsCategory = (searchNews) => {
 const displayNews = newsCat => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ``;
+
+    // News Length
+    document.getElementById('news-counter').innerText = newsCat.length;
 
     const noNews = document.getElementById('news-not-found');
     if (newsCat.length === 0) {
@@ -45,7 +48,7 @@ const displayNews = newsCat => {
         newsDiv.innerHTML = `
             <div class="row align-items-center p-2 rounded">
                 <div class="card_image col-lg-4 pe-2">
-                    <img src="${news.image_url}" class="w-100 rounded-start" alt="...">
+                    <img src="${news.image_url}" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="card_contante col-lg-8">
                     <div class="card-body">
@@ -54,12 +57,12 @@ const displayNews = newsCat => {
                         <div
                             class="card_footer card-text row align-items-center border-top pt-2">
                             <div class="writer row align-items-center col-6">
-                                <img src="${news.author.img}" class="img-fluid rounded-circle col-5 col-lg-2" alt="...">
+                                <img src="${news.author.img ? news.author.img : 'Image Not Found'}" class="img-fluid rounded-circle col-5 col-lg-2" alt="...">
                                 <div class="col-7 col-lg-10">
-                                    <p class="fw-bold">${news.author.name}</p>
+                                    <p class="fw-bold">${news.author.name ? news.author.name : 'Name Not Found'}</p>
                                 </div>
                             </div>
-                            <a href="#" class="fw-bold col-4"><i class="fa-regular fa-eye"></i> ${news.total_view}</a>
+                            <a href="#" class="fw-bold col-4"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'Not Found'}</a>
                             <a class=" col-2 text-end" data-bs-toggle="modal" data-bs-target="#detailModal" 
                             onClick="modalCategory('${news._id}')"><i class="fa-solid fa-clipboard"></i></a>
                         </div>
@@ -87,7 +90,7 @@ const spinner = isLoading => {
     }
 }
 newsCategory('08');
-
+// =====================================================================
 const modalCategory = async (findModal) => {
     const url = `https://openapi.programming-hero.com/api/news/${findModal}`
     const res = await fetch(url)
