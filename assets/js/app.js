@@ -8,10 +8,11 @@ const showCategories = cat => {
     const categoriesContainer = document.getElementById('categories-container');
 
     cat.forEach(category => {
+        // console.log(category);
         const categoryDiv = document.createElement('li');
         categoryDiv.classList.add('mb-3');
         categoryDiv.innerHTML = `
-                <a class="pe-4 px-lg-0" onClick="callCategory('${category.category_id}')">${category.category_name}</a>
+                <a class="me-4" onClick="callCategory('${category.category_id}')">${category.category_name}</a>
         `;
         categoriesContainer.appendChild(categoryDiv);
     });
@@ -59,7 +60,8 @@ const displayNews = newsCat => {
                                 </div>
                             </div>
                             <a href="#" class="fw-bold col-4"><i class="fa-regular fa-eye"></i> ${news.total_view}</a>
-                            <a href="#" class="col-2 text-end"><i class="fa-solid fa-clipboard"></i></a>
+                            <a class=" col-2 text-end" data-bs-toggle="modal" data-bs-target="#detailModal" 
+                            onClick="modalCategory('${news._id}')"><i class="fa-solid fa-clipboard"></i></a>
                         </div>
                     </div>
                 </div>
@@ -85,3 +87,42 @@ const spinner = isLoading => {
     }
 }
 newsCategory('08');
+
+const modalCategory = async (findModal) => {
+    const url = `https://openapi.programming-hero.com/api/news/${findModal}`
+    const res = await fetch(url)
+    const data = await res.json()
+    displayModal(data.data)
+
+}
+
+const displayModal = modal => {
+    // console.log(modal)
+    const modalContainer = document.getElementById('modal');
+    modalContainer.innerHTML = ``;
+    const modalDiv = document.createElement('div');
+    modal.forEach(modalCategory => {
+        console.log(modalCategory)
+        modalDiv.innerHTML = `
+        <div class="modal-img">
+        <img src="${modalCategory.thumbnail_url}" class="w-100 rounded-start" alt="...">
+    </div>
+    <h5 class="modal-title pt-4 pb-2 mb-2 fw-bold border-bottom">${modalCategory.title}</h5>
+    <p class="modal-text pb-2 mb-2 border-bottom">${modalCategory.details.slice(0, 600)}</p>
+
+    <div class=" writer row align-items-center">
+        <img src="${modalCategory.author.img}" class="img-fluid rounded-circle col-2" alt="...">
+        <div class="col-5">
+            <p class="fw-bold">${modalCategory.author.name}</p>
+            <p class="fw-bold">${modalCategory.author.published_date}</p>
+        </div>
+        <div class="col-5 d-flex justify-content-end">
+            <p class="fw-bold pe-2">${modalCategory.rating.number}</p>
+            <p class="fw-bold">${modalCategory.rating.badge}</p>
+        </div>
+    </div>
+            `
+        modalContainer.appendChild(modalDiv);
+
+    });
+}

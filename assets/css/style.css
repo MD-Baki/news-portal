@@ -80,14 +80,29 @@ ul li {
     color: var(--mid-font-color);
     font-size: 18px;
     padding-left: 15px;
+    transition: .2s all linear;
+}
+
+#nav ul li a:hover {
+    color: var(--focus-color);
 }
 
 /* ||Nav Css End|| */
 
 /* News Nav Css Start */
 #news-nav a {
+    background: transparent;
     color: var(--mid-font-color);
     font-size: 18px;
+    transition: .3s all linear;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+#news-nav a:hover {
+    background-color: var(--focus-color);
+    color: #fff;
 }
 
 /* ||News Nav Css End|| */
@@ -116,3 +131,18 @@ ul li {
 }
 
 /* ||News List Css End|| */
+
+/* Modal Css Start */
+.modal h5.modal-title {
+    color: var(--focus-color);
+}
+
+.modal .modal-text {
+    text-align: justify;
+}
+
+.modal button {
+    display: inline-block;
+}
+
+/* ||Modal Css End|| */
