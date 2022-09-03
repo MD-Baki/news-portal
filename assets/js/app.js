@@ -30,6 +30,13 @@ const displayNews = newsCat => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ``;
 
+    const noNews = document.getElementById('news-not-found');
+    if (newsCat.length === 0) {
+        noNews.classList.remove('d-none');
+    } else {
+        noNews.classList.add('d-none');
+    }
+
     newsCat.forEach(news => {
         // console.log(news);
         const newsDiv = document.createElement('div');
@@ -65,4 +72,4 @@ const callCategory = (code) => {
     // console.log(code);
     newsCategory(code);
 }
-
+newsCategory('08');
