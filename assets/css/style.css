@@ -145,7 +145,8 @@ ul li {
 /* ||News List Css End|| */
 
 /* Modal Css Start */
-.modal h5.modal-title {
+.modal h5.modal-title,
+.q-and-a i {
     color: var(--focus-color);
 }
 
@@ -153,8 +154,8 @@ ul li {
     text-align: justify;
 }
 
-.modal button {
-    display: inline-block;
-}
-
 /* ||Modal Css End|| */
+
+/* blog Css Start */
+
+/* ||blog Css End|| */
