@@ -67,9 +67,21 @@ const displayNews = newsCat => {
         `
         newsContainer.appendChild(newsDiv);
     })
+    // Stop Loader
+    spinner(false);
 }
+
 const callCategory = (code) => {
-    // console.log(code);
+    // Start Loader
+    spinner(true);
     newsCategory(code);
+}
+const spinner = isLoading => {
+    const addLoader = document.getElementById('loader');
+    if (isLoading) {
+        addLoader.classList.remove('d-none');
+    } else {
+        addLoader.classList.add('d-none');
+    }
 }
 newsCategory('08');
