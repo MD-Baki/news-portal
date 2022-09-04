@@ -1,5 +1,7 @@
+// Categories API Load
 const loadCategories = () => {
-    fetch(`https://openapi.programming-hero.com/api/news/categories`)
+    const url = `https://openapi.programming-hero.com/api/news/categories`
+    fetch(url)
         .then(res => res.json())
         .then(data => showCategories(data.data.news_category));
 }
@@ -19,12 +21,14 @@ const showCategories = cat => {
 }
 
 loadCategories();
-// ==================================================================
+
+// News API Use
 const newsCategory = (searchNews) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${searchNews}`
     fetch(url)
         .then(res => res.json())
         .then(data => displayNews(data.data))
+        .catch(error => console.log(error))
 }
 
 const displayNews = newsCat => {
@@ -34,6 +38,7 @@ const displayNews = newsCat => {
     // News Length
     document.getElementById('news-counter').innerText = newsCat.length;
 
+    // Data not Found
     const noNews = document.getElementById('news-not-found');
     if (newsCat.length === 0) {
         noNews.classList.remove('d-none');
@@ -62,7 +67,7 @@ const displayNews = newsCat => {
                                     <p class="fw-bold">${news.author.name ? news.author.name : 'Name Not Found'}</p>
                                 </div>
                             </div>
-                            <a href="#" class="fw-bold col-4"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'Not Found'}</a>
+                            <a class="fw-bold col-4"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'Not Found'}</a>
                             <a class=" col-2 text-end" data-bs-toggle="modal" data-bs-target="#detailModal" 
                             onClick="modalCategory('${news._id}')"><i class="fa-solid fa-clipboard"></i></a>
                         </div>
@@ -81,6 +86,7 @@ const callCategory = (code) => {
     spinner(true);
     newsCategory(code);
 }
+// Spinner Add
 const spinner = isLoading => {
     const addLoader = document.getElementById('loader');
     if (isLoading) {
@@ -90,12 +96,18 @@ const spinner = isLoading => {
     }
 }
 newsCategory('08');
-// =====================================================================
+
+// Modal add function
 const modalCategory = async (findModal) => {
     const url = `https://openapi.programming-hero.com/api/news/${findModal}`
-    const res = await fetch(url)
-    const data = await res.json()
-    displayModal(data.data)
+    try {
+        const res = await fetch(url)
+        const data = await res.json()
+        displayModal(data.data)
+    }
+    catch (error) {
+        console.log(error);
+    }
 
 }
 
