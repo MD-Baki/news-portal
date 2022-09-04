@@ -139,10 +139,10 @@ const displayModal = modal => {
     <div class=" writer row align-items-center g-0">
         <img src="${modalCategory.author.img}" class="img-fluid rounded-circle col-2 col-lg-1" alt="...">
         <div class="col-4 ps-2">
-            <p class="fw-bold">${modalCategory.author.name}</p>
+            <p class="fw-bold">${modalCategory.author.name ? modalCategory.author.name : 'Name Not Found'}</p>
             <p class="fw-bold">${modalCategory.author.published_date.slice(0, 10)}</p>
         </div>
-        <div class="col-3"><p class="fw-bold"><i class="fa-regular fa-eye"></i> ${modalCategory.total_view}</p></div>
+        <div class="col-3"><p class="fw-bold"><i class="fa-regular fa-eye"></i> ${modalCategory.total_view ? modalCategory.total_view : 'Not Found'}</p></div>
         <div class="col-3 d-flex justify-content-end">
             <p class="fw-bold pe-2">${modalCategory.rating.number}</p>
             <p class="fw-bold">${modalCategory.rating.badge}</p>
