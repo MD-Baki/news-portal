@@ -134,7 +134,7 @@ const displayModal = modal => {
         <img src="${modalCategory.image_url}" class="w-100 rounded-start" alt="...">
     </div>
     <h5 class="modal-title pt-4 pb-2 mb-2 fw-bold border-bottom">${modalCategory.title}</h5>
-    <p class="modal-text pb-2 mb-2 border-bottom">${modalCategory.details.slice(0, 600)}</p>
+    <p class="modal-text pb-2 mb-2 border-bottom">${modalCategory.details}</p>
 
     <div class=" writer row align-items-center g-0">
         <img src="${modalCategory.author.img}" class="img-fluid rounded-circle col-2 col-lg-1" alt="...">
