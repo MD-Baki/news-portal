@@ -136,13 +136,13 @@ const displayModal = modal => {
     <h5 class="modal-title pt-4 pb-2 mb-2 fw-bold border-bottom">${modalCategory.title}</h5>
     <p class="modal-text pb-2 mb-2 border-bottom">${modalCategory.details.slice(0, 600)}</p>
 
-    <div class=" writer row align-items-center">
+    <div class=" writer row align-items-center g-0">
         <img src="${modalCategory.author.img}" class="img-fluid rounded-circle col-2 col-lg-1" alt="...">
-        <div class="col-4">
+        <div class="col-4 ps-2">
             <p class="fw-bold">${modalCategory.author.name}</p>
             <p class="fw-bold">${modalCategory.author.published_date.slice(0, 10)}</p>
         </div>
-        <div class="col-3"><p class="fw-bold pe-2">View ${modalCategory.total_view}</p></div>
+        <div class="col-3"><p class="fw-bold"><i class="fa-regular fa-eye"></i> ${modalCategory.total_view}</p></div>
         <div class="col-3 d-flex justify-content-end">
             <p class="fw-bold pe-2">${modalCategory.rating.number}</p>
             <p class="fw-bold">${modalCategory.rating.badge}</p>
