@@ -10,7 +10,6 @@ const showCategories = cat => {
     const categoriesContainer = document.getElementById('categories-container');
 
     cat.forEach(category => {
-        // console.log(category);
         const categoryDiv = document.createElement('li');
         categoryDiv.classList.add('mb-3');
         categoryDiv.innerHTML = `
@@ -59,7 +58,6 @@ const displayNews = newsCat => {
     }
 
     filterData.forEach(news => {
-        // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card')
         newsDiv.innerHTML = `
@@ -128,7 +126,6 @@ const displayModal = modal => {
     modalContainer.innerHTML = ``;
     const modalDiv = document.createElement('div');
     modal.forEach(modalCategory => {
-        console.log(modalCategory)
         modalDiv.innerHTML = `
         <div class="modal-img">
         <img src="${modalCategory.image_url}" class="w-100 rounded-start" alt="...">
