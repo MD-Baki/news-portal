@@ -20,6 +20,15 @@ const showCategories = cat => {
     });
 }
 
+
+// showing actived callCategory
+document.getElementById("categories-container").addEventListener("click", (event) => {
+
+    const active = document.querySelector(".active")
+    active.classList.remove("active");
+    event.target.classList.add("active")
+})
+
 loadCategories();
 
 // News API Use
@@ -35,6 +44,9 @@ const displayNews = newsCat => {
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = ``;
 
+    // filterData by short view 
+    const filterData = newsCat.sort((a, b) => b.total_view - a.total_view);
+
     // News Length
     document.getElementById('news-counter').innerText = newsCat.length;
 
@@ -46,7 +58,7 @@ const displayNews = newsCat => {
         noNews.classList.add('d-none');
     }
 
-    newsCat.forEach(news => {
+    filterData.forEach(news => {
         // console.log(news);
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('card')
@@ -67,9 +79,9 @@ const displayNews = newsCat => {
                                     <p class="fw-bold">${news.author.name ? news.author.name : 'Name Not Found'}</p>
                                 </div>
                             </div>
-                            <a class="fw-bold col-4"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'Not Found'}</a>
-                            <a class=" col-2 text-end" data-bs-toggle="modal" data-bs-target="#detailModal" 
-                            onClick="modalCategory('${news._id}')"><i class="fa-solid fa-clipboard"></i></a>
+                            <a class="fw-bold col-3"><i class="fa-regular fa-eye"></i> ${news.total_view ? news.total_view : 'Not Found'}</a>
+                            <button class="btn col-3 fw-bold" data-bs-toggle="modal" data-bs-target="#detailModal" 
+                            onClick="modalCategory('${news._id}')">View More <i class="fa-solid fa-arrow-right ps-2 d-none d-md-inline-block"></i></button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +124,6 @@ const modalCategory = async (findModal) => {
 }
 
 const displayModal = modal => {
-    // console.log(modal)
     const modalContainer = document.getElementById('modal');
     modalContainer.innerHTML = ``;
     const modalDiv = document.createElement('div');
@@ -120,18 +131,19 @@ const displayModal = modal => {
         console.log(modalCategory)
         modalDiv.innerHTML = `
         <div class="modal-img">
-        <img src="${modalCategory.thumbnail_url}" class="w-100 rounded-start" alt="...">
+        <img src="${modalCategory.image_url}" class="w-100 rounded-start" alt="...">
     </div>
     <h5 class="modal-title pt-4 pb-2 mb-2 fw-bold border-bottom">${modalCategory.title}</h5>
     <p class="modal-text pb-2 mb-2 border-bottom">${modalCategory.details.slice(0, 600)}</p>
 
     <div class=" writer row align-items-center">
-        <img src="${modalCategory.author.img}" class="img-fluid rounded-circle col-2" alt="...">
-        <div class="col-5">
+        <img src="${modalCategory.author.img}" class="img-fluid rounded-circle col-2 col-lg-1" alt="...">
+        <div class="col-4">
             <p class="fw-bold">${modalCategory.author.name}</p>
-            <p class="fw-bold">${modalCategory.author.published_date}</p>
+            <p class="fw-bold">${modalCategory.author.published_date.slice(0, 10)}</p>
         </div>
-        <div class="col-5 d-flex justify-content-end">
+        <div class="col-3"><p class="fw-bold pe-2">View ${modalCategory.total_view}</p></div>
+        <div class="col-3 d-flex justify-content-end">
             <p class="fw-bold pe-2">${modalCategory.rating.number}</p>
             <p class="fw-bold">${modalCategory.rating.badge}</p>
         </div>
